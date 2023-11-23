@@ -1,0 +1,8 @@
+{
+  "name": "Webhooks",
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  }
+}
