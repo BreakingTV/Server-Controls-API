@@ -131,3 +131,6 @@ dist
 
 # Jetbrains IDE
 .idea/
+
+# Docker
+.dockerignore

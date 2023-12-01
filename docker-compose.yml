@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  app:
+    container_name: Server-Information-API
+    restart: always
+    build: .
+    ports:
+      - '3000:3000'
+    external_links:
+      - mongo
