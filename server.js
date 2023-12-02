@@ -45,7 +45,7 @@ function executeCommand(cmd) {
             });
         })
     }).on('error', err => {
-        console.log('CONNECTION ERROR');
+        console.log('CONNECTION ERROR: ' + err);
     }).connect({
         host: process.env.HOST,
         username: process.env.USERNAME,
