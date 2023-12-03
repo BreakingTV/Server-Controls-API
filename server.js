@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/startup', (req, res) => {
     res.sendStatus(200);
 
-    wol.wake('94:40:c9:ed:6c:a0', (err, res) => {
+    wol.wake(process.env.MAC, (err, res) => {
         if (err) console.log(err);
         else console.log(res);
     })
@@ -25,9 +25,10 @@ app.post('/shutdown', (req, res) => {
     executeCommand('shutdown -P now');
 });
 
-app.get('/status', (req, res) => {
+app.get('/status/uptime', (req, res) => {
     res.sendStatus(200);
     executeCommand('uptime');
+    console.log(process.env.MAC);
 });
 
 
