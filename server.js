@@ -28,7 +28,6 @@ app.post('/shutdown', (req, res) => {
 app.get('/status/uptime', (req, res) => {
     res.sendStatus(200);
     executeCommand('uptime');
-    console.log(process.env.MAC);
 });
 
 
