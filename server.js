@@ -27,21 +27,22 @@ app.post('/shutdown', (req, res) => {
 
 app.get('/status/uptime', (req, res) => {
     res.sendStatus(200);
-    executeCommand('uptime');
+    console.log(executeCommand('uptime'));
 });
 
 
-function executeCommand(cmd) {
+async function executeCommand(cmd) {
+    let result = 'TEST';
     const conn = new Client;
-    conn.on('ready', () => {
-        conn.exec('sudo ' + cmd, { pty: true }, (err, stream) => {
+    await conn.on('ready', () => {
+        conn.exec('sudo ' + cmd, {pty: true}, (err, stream) => {
             if (err) throw err;
-            stream.on('close', (code, signal) => {
+            stream.on('data', (data) => {
+                if (data.indexOf(':') >= data.length - 2) stream.write(process.env.PASSWORD + '\n');
+                else result = data;
+            }).on('close', (code, signal) => {
                 console.log('STREAM END');
                 conn.end();
-            }).on('data', (data) => {
-                if (data.indexOf(':') >= data.length - 2) stream.write(process.env.PASSWORD + '\n');
-                else console.log('OUTPUT: ' + data)
             });
         })
     }).on('error', err => {
@@ -51,6 +52,6 @@ function executeCommand(cmd) {
         username: process.env.USERNAME,
         password: process.env.PASSWORD
     });
-
+    return result;
 }
 app.listen(PORT, () => { console.log(`Server is running on port ${PORT}`); });
