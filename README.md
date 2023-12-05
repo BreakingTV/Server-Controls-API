@@ -35,6 +35,6 @@ MAC="xx:xx:xx:xx:xx:xx"
 `/docker/start/$containerID$` [POST] <br>
 
 ## TODO
--[ ] Admin Keys
--[ ] Docker Commands
--[ ] /status/service
+- [ ] Admin Keys
+- [ ] Docker Commands
+- [ ] /status/service
