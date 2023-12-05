@@ -22,12 +22,19 @@ MAC="xx:xx:xx:xx:xx:xx"
 `/startup` [POST] <br>
 `/shutdown` [POST] <br>
 
-### Work in progress
 #### General
 `/status/uptime` [GET] <br>
+
+### Work in progress
+#### General
 `/status/services` [GET] (Only Show what Services are online/offline) <br>
 
 #### Admin
 `/docker/list` [GET] (Show IDs; more Information) <br>
 `/docker/stop/$containerID$` [POST] <br>
 `/docker/start/$containerID$` [POST] <br>
+
+## TODO
+-[ ] Admin Keys
+-[ ] Docker Commands
+-[ ] /status/service
