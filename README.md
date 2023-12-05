@@ -17,7 +17,17 @@ MAC="xx:xx:xx:xx:xx:xx"
 ```
 
 ## API
-`/startup` <br>
-`/shutdown` <br>
-`/status/uptime`
+### Ready
+#### Admin
+`/startup` [POST] <br>
+`/shutdown` [POST] <br>
 
+### Work in progress
+#### General
+`/status/uptime` [GET] <br>
+`/status/services` [GET] (Only Show what Services are online/offline) <br>
+
+#### Admin
+`/docker/list` [GET] (Show IDs; more Information) <br>
+`/docker/stop/$containerID$` [POST] <br>
+`/docker/start/$containerID$` [POST] <br>
