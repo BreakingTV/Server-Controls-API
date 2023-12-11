@@ -16,4 +16,11 @@ router.get('/uptime', async (req, res) => {
     }).catch(err => console.log(err));
 });
 
+
+router.get('/service', async (req, res) => {
+    await execute.command('htop', false).then(result => {
+        res.send(result);
+    })
+});
+
 module.exports = router;

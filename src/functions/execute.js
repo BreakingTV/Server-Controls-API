@@ -1,11 +1,11 @@
 const {Client} = require("ssh2");
 
-async function command(cmd) {
+async function command(cmd, useSudo = true) {
     const conn = new Client;
     return new Promise((resolve, reject) => {
         let res;
         conn.on('ready', () => {
-            conn.exec('sudo ' + cmd, {pty: true}, (err, stream) => {
+            conn.exec((useSudo) ? 'sudo ' + cmd : cmd, {pty: true}, (err, stream) => {
                 if (err) throw err;
                 stream.on('close', (code, signal) => {
                     console.log('STREAM END');
