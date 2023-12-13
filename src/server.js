@@ -43,13 +43,5 @@ const dockerRouter = require('./router/docker');
 app.use('/api/docker', dockerRouter);
 
 
-/* --- Frontend Routing --- */
-app.get('/', (req, res) => {
-    res.render('index', {
-        title: 'Server-Information-API',
-        message: 'A cool Web-presence will be build here!'
-    })
-})
-
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => { console.log(`Server is running on port ${PORT}`); });

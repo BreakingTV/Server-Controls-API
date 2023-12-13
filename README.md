@@ -26,8 +26,6 @@ MAC="xx:xx:xx:xx:xx:xx"
 `/status/uptime` [GET] <br>
 
 ### Work in progress
-#### General
-`/status/services` [GET] (Only Show what Services are online/offline) <br>
 
 #### Admin
 `/docker/list` [GET] (Show IDs; more Information) <br>
@@ -36,5 +34,4 @@ MAC="xx:xx:xx:xx:xx:xx"
 
 ## TODO
 - [ ] Admin Keys
-- [ ] Docker Commands
-- [ ] /status/service
+- [ ] SSH keys authentication
