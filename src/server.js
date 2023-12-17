@@ -34,13 +34,13 @@ app.use(cookieParser());
 
 /* --- Backend Routing --- */
 const controlRouter = require('./router/control');
-app.use('/api/control', controlRouter);
+app.use('/control', controlRouter);
 
 const statusRouter = require('./router/status');
-app.use('/api/status', statusRouter);
+app.use('/status', statusRouter);
 
 const dockerRouter = require('./router/docker');
-app.use('/api/docker', dockerRouter);
+app.use('/docker', dockerRouter);
 
 
 const PORT = process.env.PORT || 3000;

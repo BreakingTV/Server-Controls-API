@@ -24,11 +24,11 @@ MAC="xx:xx:xx:xx:xx:xx"
 
 #### General
 `/status/uptime` [GET] <br>
+`/docker/list` [GET] <br>
 
 ### Work in progress
 
 #### Admin
-`/docker/list` [GET] (Show IDs; more Information) <br>
 `/docker/stop/$containerID$` [POST] <br>
 `/docker/start/$containerID$` [POST] <br>
 
