@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const path = require('path');
-const pug = require('pug');
 
 /* ===============>
      -- Environment Configuration --
@@ -17,13 +16,6 @@ if (!process.env.DOCKER) {
  <=============== */
 const app = express();
 
-/* --- Frontend Configuration --- */
-app.use(express.static('public'))
-app.set("views", path.join(__dirname, "views"));
-app.set('view engine', 'pug')
-
-
-/* --- Backend Configuration --- */
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
@@ -32,7 +24,6 @@ app.use(cookieParser());
      -- Routing --
  <=============== */
 
-/* --- Backend Routing --- */
 const controlRouter = require('./router/control');
 app.use('/control', controlRouter);
 
