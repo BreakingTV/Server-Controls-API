@@ -11,6 +11,6 @@
     "wol": "^1.0.7"
   },
   "scripts": {
-    "start": "Hello!"
+    "start": "node server.js"
   }
 }

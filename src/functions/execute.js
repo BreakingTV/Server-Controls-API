@@ -6,7 +6,6 @@ async function command(cmd, useSudo = true) {
     // TODO: rewrite this mess
 
     const conn = new Client;
-        if (await checkStatus() === true) {
             return new Promise(async (resolve, reject) => {
                 let res;
                 conn.on('ready', () => {
@@ -31,22 +30,6 @@ async function command(cmd, useSudo = true) {
                     password: process.env.PASSWORD
                 });
             });
-        } else {
-            return {data: {status: "OFFLINE"}};
-        }
-}
-
-async function checkStatus() {
-    return new Promise((resolve, reject) => {
-        exec('ping -c 1 ' + ((process.env.IPV6 === undefined) ? process.env.HOST : process.env.IPV6), (error, stdout) => {
-            if (error) {
-                resolve(false);
-                return;
-            }
-            resolve(true)
-        })
-    })
-
 }
 
 module.exports = { command }
